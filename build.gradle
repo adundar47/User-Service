@@ -43,8 +43,10 @@ configurations.all {
 }
 
 dependencies {
-	implementation('org.springframework.boot:spring-boot-starter-web')
-	implementation('org.springframework.boot:spring-boot-starter-data-mongodb')	
+	compile('org.springframework.boot:spring-boot-starter-web'){
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+	compile("org.springframework.boot:spring-boot-starter-data-mongodb")	
 	compile("org.springframework.cloud:spring-cloud-starter-eureka")
 	compile("org.springframework.cloud:spring-cloud-starter-feign") 
 	compile("org.springframework.cloud:spring-cloud-starter-hystrix")

@@ -74,20 +74,20 @@ public class KafkaMessageProducerManager implements MessageProducerService {
 
     @Override
     @Async
-    public void sendDeleteUserEvent(final String userId) {
-        LOG.debug("[sendDeleteUserEvent] User Id object is sending.. -> {}", userId);
+    public void sendDeleteUserEvent(final User user) {
+        LOG.debug("[sendDeleteUserEvent] User object is sending.. -> {}", user);
 
-        ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send(deleteUserTopic, userId);
+        ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send(deleteUserTopic, user);
         future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
 
             @Override
             public void onSuccess(SendResult<String, Object> result) {
-                LOG.debug("[sendDeleteUserEvent] sent message='{}' with offset={}", userId, result.getRecordMetadata().offset());
+                LOG.debug("[sendDeleteUserEvent] sent message='{}' with offset={}", user, result.getRecordMetadata().offset());
             }
 
             @Override
             public void onFailure(Throwable ex) {
-                LOG.error("[sendDeleteUserEvent] unable to send message='{}'", userId, ex);
+                LOG.error("[sendDeleteUserEvent] unable to send message='{}'", user, ex);
             }
 
         });

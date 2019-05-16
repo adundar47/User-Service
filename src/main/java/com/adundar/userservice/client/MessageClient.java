@@ -9,7 +9,7 @@ import com.adundar.userservice.model.Result;
 @FeignClient(name = "message-service", fallback = MessageClientFallback.class)
 public interface MessageClient {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/messages")
+    @RequestMapping(method = RequestMethod.GET, value = "/api/v1/messages")
     Result<?> getAllMessages();
 
 }

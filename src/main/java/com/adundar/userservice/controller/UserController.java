@@ -20,7 +20,7 @@ import com.adundar.userservice.model.User;
 import com.adundar.userservice.service.UserService;
 
 @RestController
-@RequestMapping("/api/1.0")
+@RequestMapping("/api/v1")
 public class UserController {
 
     @Autowired
@@ -41,7 +41,7 @@ public class UserController {
         return ResponseEntity.ok(userService.retrieveUser(userId));
     }
 
-    @GetMapping("/users/{name}")
+    @GetMapping("/users/name/{name}")
     public ResponseEntity<?> retrieveUserByName(@PathVariable String name) throws NotFoundException {
         return ResponseEntity.ok(userService.retrieveUserByName(name));
     }

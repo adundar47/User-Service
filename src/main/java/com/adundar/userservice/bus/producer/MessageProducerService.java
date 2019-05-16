@@ -8,6 +8,6 @@ public interface MessageProducerService {
 
     void sendUpdateUserEvent(User user);
 
-    void sendDeleteUserEvent(String userId);
+    void sendDeleteUserEvent(User user);
 
 }

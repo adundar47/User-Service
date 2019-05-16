@@ -1,6 +1,11 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+bin/
 .gradle
-/build/
-!gradle/wrapper/gradle-wrapper.jar
+out/
+gradle
+gradlew
+gradle.bat
 
 ### STS ###
 .apt_generated
@@ -9,18 +14,19 @@
 .project
 .settings
 .springBeans
-.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-/out/
 
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+/.metadata/
+/.recommenders/

@@ -39,7 +39,7 @@ public class UserService {
 
     public Result<?> retrieveUser(String userId) throws NotFoundException {
         User user = userRepository.findOne(userId);
-        if (user != null)
+        if (user == null)
             throw new NotFoundException(Utils.getUserIdNotFoundError(userId));
 
         return Result.success(HttpStatus.OK, user);
@@ -60,7 +60,7 @@ public class UserService {
 
         userRepository.delete(user);
 
-        messageProducerService.sendDeleteUserEvent(userId);
+        messageProducerService.sendDeleteUserEvent(user);
 
         return Result.success(HttpStatus.OK, user);
     }
